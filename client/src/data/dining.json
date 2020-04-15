@@ -1,0 +1,30 @@
+{
+  "dining": [{
+      "_id": 0,
+      "name": "Bean & Leaf",
+      "description": "A family ran independent coffee shop serving you only the best.",
+      "priceRating": 0,
+      "telephone": "01234567890",
+      "theme": 0,
+      "coords": [52.407554, -1.510427]
+    },
+    {
+      "_id": 1,
+      "name": "Cosy Club",
+      "description": "Coventry Cosy Club is a glorious celebration of different styles.",
+      "priceRating": 0,
+      "telephone": "01234567890",
+      "theme": 0,
+      "coords": [52.407837, -1.509850]
+    },
+    {
+      "_id": 2,
+      "name": "Slug & Lettuce",
+      "description": "Slug and Lettuce Coventry is set right opposite the Cathedral Ruins, and has a fantastic outs_ide bar and beautiful beer garden.",
+      "priceRating": 0,
+      "telephone": "01234567890",
+      "theme": 0,
+      "coords": [52.408065, -1.508466]
+    }
+  ]
+}

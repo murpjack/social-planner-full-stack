@@ -1,0 +1,31 @@
+{
+  "entertainment": [{
+      "_id": 3,
+      "name": "Ice skating",
+      "description": "We offer great courses in Ice Skating Lessons & Ice Hockey Lessons.",
+      "priceRating": 0,
+      "telephone": "01234567890",
+      "theme": 1,
+      "coords": [52.406780, -1.518082]
+    },
+    {
+      "_id": 4,
+      "name": "Allesley Pitch and Putt",
+      "description": "Set in well-maintained parkland. Allesley offers a great day out for the family.",
+      "priceRating": 0,
+      "telephone": "01234567890",
+      "theme": 1,
+      "coords": [52.420184, -1.557579]
+    },
+
+    {
+      "_id": 5,
+      "name": "The Wave, water park",
+      "description": "The UK’s newest indoor waterpark is making a splash in the heart of Coventry.",
+      "priceRating": 0,
+      "telephone": "024 7625 2500",
+      "theme": 1,
+      "coords": [52.405491, -1.510695]
+    }
+  ]
+}
