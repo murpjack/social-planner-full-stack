@@ -1,19 +1,17 @@
 import axios from 'axios'
-
+import { diner } from "../types/data";
 const api = axios.create({
-    baseURL: 'http://localhost:3000/api',
+  baseURL: 'http://localhost:3000/api',
 })
 
-export const insertDiner = payload => api.post(`/dining`, payload)
+export const insertDiner = (diner: diner) => api.post(`/dining`, diner)
 export const getAllDiners = () => api.get(`/dining`)
-export const updateDinerById = (id, payload) => api.put(`/dining/${id}`, payload)
-export const deleteDinerById = id => api.delete(`/dining/${id}`)
+export const updateDinerById = (id: number, diner: diner) => api.put(`/dining/${id}`, diner)
+export const deleteDinerById = (id: number) => api.delete(`/dining/${id}`)
 
-const diningApis = {
-    insertDiner,
-    getAllDiners,
-    updateDinerById,
-    deleteDinerById
+export default {
+  insertDiner,
+  getAllDiners,
+  updateDinerById,
+  deleteDinerById
 }
-
-export default diningApis

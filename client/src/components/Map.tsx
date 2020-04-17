@@ -2,8 +2,6 @@ import React, { useContext } from 'react';
 import { AppContext } from "../store";
 
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
-import d from '../data/dining.json';
-import API_KEY from '../secure';
 
 export const MapContainer = () => {
   const { state } = useContext(AppContext);
@@ -13,13 +11,21 @@ export const MapContainer = () => {
   const noshMarker = addCoordinatesToMap(dining);
   const funMarker = addCoordinatesToMap(fun);
 
-  const [lat, lng] = d.data.dining[0].coords;
+  // const [lat, lng] = ({
+  //     "_id": 0,
+  //     "name": "Bean & Leaf",
+  //     "description": "A family ran independent coffee shop serving you only the best.",
+  //     "priceRating": 0,
+  //     "telephone": "01234567890",
+  //     "theme": 0,
+  //     "coords": [52.407554, -1.510427]
+  //   }).coords;
+  // initialCenter={{ lat, lng }}
 
   return (
       <Map
         google={google}
         zoom={13}
-        initialCenter={{ lat, lng }}
         mapTypeControl={false}
         zoomControl={false}
       >
@@ -32,9 +38,9 @@ export const MapContainer = () => {
 // size: { "700px" }
 
 export default GoogleApiWrapper({
-  apiKey: (API_KEY)
+  apiKey: ("Hi")
 })(MapContainer);
-
+// process.env.REACT_APP_MAP_API_KEY
 function addCoordinatesToMap(venue: any) {
   const coords = venue.coords;
   const imageDetails = {

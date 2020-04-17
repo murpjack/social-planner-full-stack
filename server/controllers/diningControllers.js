@@ -1,36 +1,36 @@
-const Venue = require('../models/venue-model');
+const Diner = require('../models/dining-model');
 
-createVenue = (req, res) => {
+createDiner = (req, res) => {
     const body = req.body;
     console.log("res", res);
 
     if (!body) {
         return res.status(400).json({
             success: false,
-            error: 'You must provide a venue',
+            error: 'You must provide a diner',
         });
     }
 
-    const venue = new Venue(body);
-    console.log("venue", venue);
-    if (!venue) {
+    const diner = new Diner(body);
+    console.log("diner", diner);
+    if (!diner) {
       return res.status(400).json({ success: false, error: err })
     }
 
-    venue
+    diner
         .save()
         .then(() => res.status(201).json({
                 success: true,
-                id: venue._id,
-                message: 'Venue created!',
+                id: diner._id,
+                message: 'Diner created!',
               }))
         .catch(error => res.status(400).json({
                 error,
-                message: 'Venue not created!',
+                message: 'Diner not created!',
             }))
 };
 
-updateVenue = async (req, res) => {
+updateDiner = async (req, res) => {
     const body = req.body;
 
     if (!body) {
@@ -40,71 +40,71 @@ updateVenue = async (req, res) => {
         })
     }
 
-    Venue.findOne({ _id: req.params.id }, (err, venue) => {
+    Diner.findOne({ _id: req.params.id }, (err, diner) => {
         if (err) {
             return res.status(404).json({
                 err,
-                message: 'Venue not found!',
+                message: 'Diner not found!',
             })
         }
-        venue._id = body._id;
-        venue.name = body.name;
-        venue.description = body.description;
-        venue.telephone = body.telephone;
-        venue.priceRating = body.priceRating;
-        venue.coords = body.coords;
+        diner._id = body._id;
+        diner.name = body.name;
+        diner.description = body.description;
+        diner.telephone = body.telephone;
+        diner.priceRating = body.priceRating;
+        diner.coords = body.coords;
 
-        venue
+        diner
             .save()
             .then(() => {
                 return res.status(200).json({
                     success: true,
-                    id: venue._id,
-                    message: 'Venue updated!',
+                    id: diner._id,
+                    message: 'Diner updated!',
                 })
             })
             .catch(error => {
                 return res.status(404).json({
                     error,
-                    message: 'Venue not updated!',
+                    message: 'Diner not updated!',
                 })
             })
     })
 }
 
-deleteVenue = async (req, res) => {
-    await Venue.findOneAndDelete({ _id: req.params.id }, (err, venue) => {
+deleteDiner = async (req, res) => {
+    await Diner.findOneAndDelete({ _id: req.params.id }, (err, diner) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
 
-        if (!venue) {
+        if (!diner) {
             return res
                 .status(404)
-                .json({ success: false, error: `Venue not found` })
+                .json({ success: false, error: `Diner not found` })
         }
 
-        return res.status(200).json({ success: true, data: venue })
+        return res.status(200).json({ success: true, data: diner })
     }).catch(err => console.log(err))
 }
 
-getVenues = async (req, res) => {
-    await Venue.find({}, (err, venues) => {
+getDiners = async (req, res) => {
+    await Diner.find({}, (err, diners) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
         }
-        if (!venues.length) {
+        if (!diners.length) {
             return res
                 .status(404)
-                .json({ success: false, error: `Venue not found` })
+                .json({ success: false, error: `Diner not found` })
         }
-        return res.status(200).json({ success: true, data: venues })
+        return res.status(200).json({ success: true, data: diners })
     }).catch(err => console.log(err))
 }
 
 module.exports = {
-    createVenue,
-    updateVenue,
-    deleteVenue,
-    getVenues
+    createDiner,
+    updateDiner,
+    deleteDiner,
+    getDiners
 }
