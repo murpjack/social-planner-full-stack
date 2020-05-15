@@ -1,6 +1,6 @@
-import { dataEntry } from "./types/data";
+import { option } from "./types/data";
 
-export default function toggleListOpen(list: dataEntry[], filterIdx: number) {
+export default function toggleListOpen(list: option[], filterIdx: number) {
   const filterName = `option${filterIdx + 1}`;
   const cats = list.reduce((tot, cur, idx) => {
     const closed = {

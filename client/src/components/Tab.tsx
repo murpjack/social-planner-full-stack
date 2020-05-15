@@ -9,7 +9,7 @@ type Tab = {
 
 export const Tab = ({ currentIdx, isSelected, handleClick }: Tab) => {
   const { state } = useContext(AppContext);
-  const { _id } = state.options[currentIdx];
+  const { id } = state.options[currentIdx];
 
   const classes = `option__tab ${isSelected ? "option__tab--selected" : ""}`;
 
@@ -17,7 +17,7 @@ export const Tab = ({ currentIdx, isSelected, handleClick }: Tab) => {
     <div
       className={classes}
       onClick={handleClick}>
-      <h2 className="option__title">{_id + 1}</h2>
+      <h2 className="option__title">{id + 1}</h2>
     </div>
   </div>
 };

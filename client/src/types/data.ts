@@ -1,5 +1,6 @@
-export type entertainmentResponse = {
-  entertainment: activity[]
+export type apiResponse = {
+  data: []
+  success: boolean
 }
 
 export type activity = {
@@ -12,10 +13,6 @@ export type activity = {
   coords: [number, number]
 }
 
-export type diningResponse = {
-  dining: diner[]
-}
-
 export type diner = {
   _id: number,
   name: string,
@@ -26,9 +23,9 @@ export type diner = {
   coords: [number, number]
 }
 
-export type dataEntry = {
+export type option = {
   id: number,
   name: string,
-  dining: diner,
-  fun: activity
+  dining: diner | null,
+  fun: activity | null
 }
