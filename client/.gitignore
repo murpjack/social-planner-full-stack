@@ -10,7 +10,7 @@
 
 # production
 /build
-/api-keys.ts
+/src/api-keys.ts
 
 # misc
 .DS_Store
